@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Post</title>
 </head>
-<body>
+<body th:include="partials :: flex-body">
+    <nav th:replace="partials :: navbar"></nav>
     <h1><span th:text="${post.title}"></span></h1>
     <p><span th:text="${post.body}"></span></p>
+    <footer th:replace="partials :: footer"></footer>
+    <script th:replace="partials :: js"></script>
 </body>
 </html>

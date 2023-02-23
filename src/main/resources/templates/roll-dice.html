@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Guess</title>
+<head th:replace="partials :: head ('Dice game')">
 </head>
-<body>
-    <h1>Roll Dice Game</h1>
-    <p th:if="${roll == null}">Guess a number:</p>
-    <p th:if="${roll}">You guessed: <span th:text="${guess}"></span></p>
-    <p th:if="${message}"><span th:text="${message}"></span></p>
-    <div th:if="${roll == null}">
-        <a th:href="@{/roll-dice/1}">1</a>
-        <a th:href="@{/roll-dice/2}">2</a>
-        <a th:href="@{/roll-dice/3}">3</a>
-        <a th:href="@{/roll-dice/4}">4</a>
-        <a th:href="@{/roll-dice/5}">5</a>
-        <a th:href="@{/roll-dice/6}">6</a>
+<body class="main-container">
+    <div>
+        <nav th:include="partials :: navbar" class="navbar"></nav>
     </div>
-    <div th:if="${roll}">
-        <p><a th:href="@{/roll-dice}">Roll again</a></p>
+    <div class="text-container">
+        <h1>Roll Dice Game</h1>
+        <p th:if="${roll == null}">Guess a number:</p>
+        <p th:if="${roll}">You guessed: <span th:text="${guess}"></span></p>
+        <p th:if="${message}"><span th:text="${message}"></span></p>
+        <div th:if="${roll == null}">
+            <a class="text-links" th:href="@{/roll-dice/1}"><i class="fa-solid fa-dice-one"></i></a>
+            <a class="text-links" th:href="@{/roll-dice/2}"><i class="fa-solid fa-dice-two"></i></a>
+            <a class="text-links" th:href="@{/roll-dice/3}"><i class="fa-solid fa-dice-three"></i></a>
+            <a class="text-links" th:href="@{/roll-dice/4}"><i class="fa-solid fa-dice-four"></i></a>
+            <a class="text-links" th:href="@{/roll-dice/5}"><i class="fa-solid fa-dice-five"></i></a>
+            <a class="text-links" th:href="@{/roll-dice/6}"><i class="fa-solid fa-dice-six"></i></a>
+        </div>
+        <div th:if="${roll}">
+            <p><a class="text-links" th:href="@{/roll-dice}">Roll again</a></p>
+        </div>
     </div>
+    <footer th:replace="partials :: footer"></footer>
+    <script th:replace="partials :: js"></script>
 </body>
 </html>

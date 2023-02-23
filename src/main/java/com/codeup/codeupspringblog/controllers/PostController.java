@@ -25,9 +25,10 @@ public class PostController {
     }
 
     @GetMapping("/posts/{id}")
-    @ResponseBody
-    public String showPost(@PathVariable int id) {
-        return "this is a post with id of #" + id;
+    public String showPost(@PathVariable long id, Model model) {
+        Post post = new Post(id, "New Post", ("A new post with an id of " + id));
+        model.addAttribute("post", post);
+        return "posts/show";
     }
 
     @GetMapping("/posts/create")

@@ -27,10 +27,4 @@ public class DiceController {
         }
         return "roll-dice";
     }
-
-//    @GetMapping("/roll-dice/{guess}")
-//    public String rollDice(@PathVariable int guess, Model model) {
-//        int randNum = (int) (Math.random() * 6) + 1;
-//        return "roll-dice";
-//    }
 }

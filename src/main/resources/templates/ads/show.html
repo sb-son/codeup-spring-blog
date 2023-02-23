@@ -3,15 +3,15 @@
 <head th:replace="partials :: head ('Viewing an Ad')">
 </head>
 <body>
+    <nav th:replace="partials :: navbar"></nav>
     <h1 th:text="${ad.title}"></h1>
     <h2>By: <span th:text="${ad.userId}"></span></h2>
     <p th:text="${ad.description}"></p>
-    <ul>
-      <li th:each="category : ${ad.categories}" th:text="${category}"></li>
-    </ul>
     <div th:if="${userIsCreator}">
         <button>Edit Ad</button>
         <button>Delete Ad</button>
     </div>
+    <footer th:replace="partials :: footer"></footer>
+    <script th:replace="partials :: js"></script>
 </body>
 </html>
