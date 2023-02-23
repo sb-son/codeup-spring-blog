@@ -2,13 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials :: head ('All posts')">
 </head>
-<body>
+<body class="main-container">
     <nav th:replace="partials :: navbar"></nav>
     <div class="text-container">
         <h1>Posts</h1>
         <ul>
           <li th:each="post : ${posts}">
-              <a th:href="@{/posts/{id}(id=${post.id})}"><h2 th:text="${post.title}">post</h2></a>
+              <a th:href="@{/posts/{id}(id=${post.id})}" class="text-links"><h2 th:text="${post.title}">post</h2></a>
             <p th:text="${post.body}">post</p>
           </li>
         </ul>

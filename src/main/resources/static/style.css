@@ -32,7 +32,7 @@ body {
     font-size: 45px;
     margin-top: 5px;
     margin-left: 15px;
-    font-family: Chalkduster;
+    font-family: Chalkduster, cursive;
     font-weight: bold;
     color: white;
     letter-spacing: 2px;
@@ -68,6 +68,11 @@ a.nav-text {
     font-family: Chalkboard, sans-serif;
     letter-spacing: 2px;
     padding: 5px 20px;
+}
+
+.text-links:hover h2 {
+    color: #222831;
+    font-family: Chalkduster, cursive;
 }
 
 .nav-container li a:hover {

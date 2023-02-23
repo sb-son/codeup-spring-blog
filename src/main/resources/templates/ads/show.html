@@ -2,14 +2,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials :: head ('Viewing an Ad')">
 </head>
-<body>
+<body class="main-container">
     <nav th:replace="partials :: navbar"></nav>
-    <h1 th:text="${ad.title}"></h1>
-    <h2>By: <span th:text="${ad.userId}"></span></h2>
-    <p th:text="${ad.description}"></p>
-    <div th:if="${userIsCreator}">
-        <button>Edit Ad</button>
-        <button>Delete Ad</button>
+    <div class="text-container">
+        <h1 th:text="${ad.title}"></h1>
+        <h2>By: <span th:text="${ad.userId}"></span></h2>
+        <p th:text="${ad.description}"></p>
+        <div th:if="${userIsCreator}">
+            <button>Edit Ad</button>
+            <button>Delete Ad</button>
+        </div>
     </div>
     <footer th:replace="partials :: footer"></footer>
     <script th:replace="partials :: js"></script>

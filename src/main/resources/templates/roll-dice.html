@@ -12,12 +12,12 @@
         <p th:if="${roll}">You guessed: <span th:text="${guess}"></span></p>
         <p th:if="${message}"><span th:text="${message}"></span></p>
         <div th:if="${roll == null}">
-            <a class="text-links" th:href="@{/roll-dice/1}"><i class="fa-solid fa-dice-one"></i></a>
-            <a class="text-links" th:href="@{/roll-dice/2}"><i class="fa-solid fa-dice-two"></i></a>
-            <a class="text-links" th:href="@{/roll-dice/3}"><i class="fa-solid fa-dice-three"></i></a>
-            <a class="text-links" th:href="@{/roll-dice/4}"><i class="fa-solid fa-dice-four"></i></a>
-            <a class="text-links" th:href="@{/roll-dice/5}"><i class="fa-solid fa-dice-five"></i></a>
-            <a class="text-links" th:href="@{/roll-dice/6}"><i class="fa-solid fa-dice-six"></i></a>
+            <a class="text-links" th:href="@{/roll-dice/1}"><i class="fa-solid fa-dice-one fa-xl"></i></a>
+            <a class="text-links" th:href="@{/roll-dice/2}"><i class="fa-solid fa-dice-two fa-xl"></i></a>
+            <a class="text-links" th:href="@{/roll-dice/3}"><i class="fa-solid fa-dice-three fa-xl"></i></a>
+            <a class="text-links" th:href="@{/roll-dice/4}"><i class="fa-solid fa-dice-four fa-xl"></i></a>
+            <a class="text-links" th:href="@{/roll-dice/5}"><i class="fa-solid fa-dice-five fa-xl"></i></a>
+            <a class="text-links" th:href="@{/roll-dice/6}"><i class="fa-solid fa-dice-six fa-xl"></i></a>
         </div>
         <div th:if="${roll}">
             <p><a class="text-links" th:href="@{/roll-dice}">Roll again</a></p>

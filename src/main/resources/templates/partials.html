@@ -6,7 +6,7 @@
     <link rel="stylesheet" th:href="@{/style.css}">
     <script src="https://kit.fontawesome.com/ace4380aab.js" crossorigin="anonymous"></script>
 </head>
-<body th:fragment="flex-body" th:class="main-container">
+<body th:class="main-container">
     <header th:fragment="header (header)">
         <h1 th:text="${header}">Welcome to Life's a blog</h1>
     </header>
@@ -17,7 +17,7 @@
         <a class="logo" href="/"><span class="nav-header">Life's a</span> Blog</a>
         <ul class="nav-container" id="nav">
             <li><a href="/" class="nav-links nav-text">Home</a></li>
-            <li><a href="/posts/index" class="nav-links nav-text">Posts</a></li>
+            <li><a href="/posts" class="nav-links nav-text">Posts</a></li>
             <li><a href="/roll-dice" class="nav-links nav-text">Dice game</a></li>
         </ul>
     </nav>

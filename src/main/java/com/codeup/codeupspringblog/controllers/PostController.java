@@ -13,11 +13,11 @@ import java.util.List;
 
 @Controller
 public class PostController {
-    @GetMapping("/posts/index")
+    @GetMapping("/posts")
     public String index(Model model) {
         List<Post> posts = new ArrayList<>();
-        Post post1 = new Post("First post", "My first post");
-        Post post2 = new Post("Second post", "Another post");
+        Post post1 = new Post(1, "First post", "My first post");
+        Post post2 = new Post(2, "Second post", "Another post");
         posts.add(post1);
         posts.add(post2);
         model.addAttribute("posts", posts);
