@@ -75,6 +75,16 @@ a.nav-text {
     font-family: Chalkduster, cursive;
 }
 
+.back-btn {
+    display: flex;
+    width: 5em;
+}
+
+.back-btn:hover {
+    color: #222831;
+    font-family: Chalkduster, cursive;
+}
+
 .nav-container li a:hover {
     color: #ff7777;
 }
@@ -93,6 +103,30 @@ a.nav-text {
     font-family: Chalkboard, sans-serif;
     letter-spacing: 5px;
     font-size: 50px;
+}
+
+.create-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.create-form > #title {
+    width: 40%;
+}
+
+.create-form > #body {
+    width: 70%;
+    height: 15em;
+}
+
+.post {
+    padding: 10px;
+}
+
+.post h2 {
+    display: contents;
 }
 
 .footer {

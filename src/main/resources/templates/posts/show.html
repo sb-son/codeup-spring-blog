@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials :: head (${post.title})">
+<head th:replace="~{partials :: head (${post.title})}">
 </head>
 <body class="main-container">
-    <nav th:replace="partials :: navbar"></nav>
+    <nav th:replace="~{partials :: navbar}"></nav>
     <div class="text-container">
         <h1><span th:text="${post.title}"></span></h1>
         <p><span th:text="${post.body}"></span></p>
+        <a href="/posts" class="text-links back-btn">Back</a>
     </div>
-    <footer th:replace="partials :: footer"></footer>
-    <script th:replace="partials :: js"></script>
+    <footer th:replace="~{partials :: footer}"></footer>
+    <script th:replace="~{partials :: js}"></script>
 </body>
 </html>
