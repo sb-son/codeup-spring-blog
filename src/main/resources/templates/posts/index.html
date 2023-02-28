@@ -11,6 +11,7 @@
               <div class="post">
                   <a th:href="@{/posts/{id}(id=${post.id})}" class="text-links"><h2 th:text="${post.title}">post</h2></a>
                   <p th:text="${post.body}">post</p>
+                  <p>Created By: <span th:text="${post.user.username}"></span></p>
               </div>
           </li>
         </ul>
