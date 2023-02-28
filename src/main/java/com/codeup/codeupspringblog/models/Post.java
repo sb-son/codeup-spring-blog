@@ -15,6 +15,7 @@ public class Post {
     @Column(length = 100, nullable = false)
     private String title;
 
+    @Size(min = 20, message = "Description must be greater than 20 characters")
     @Column(nullable = false)
     private String body;
 

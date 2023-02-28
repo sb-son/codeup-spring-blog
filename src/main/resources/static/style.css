@@ -80,6 +80,15 @@ a.nav-text {
     width: 5em;
 }
 
+.error-message {
+    color: red;
+    font-size: 0.8em;
+}
+
+.error-field {
+    border: 1px solid #ff5252;
+}
+
 .back-btn:hover {
     color: #222831;
     font-family: Chalkduster, cursive;
@@ -97,6 +106,8 @@ a.nav-text {
     width: 100%;
     text-align: center;
     margin-top: 30px;
+    display: flex;
+    flex-direction: column;
 }
 
 .text-container h1 {
@@ -114,11 +125,13 @@ a.nav-text {
 
 .create-form > #title {
     width: 40%;
+    padding: .25em;
 }
 
 .create-form > #body {
     width: 70%;
     height: 15em;
+    padding: 0.5em;
 }
 
 .post {
@@ -130,15 +143,15 @@ a.nav-text {
 }
 
 .footer {
-    margin-top: auto;
     text-align: center;
+    margin: 2.5em auto;
 }
 
 .main-container {
     display: flex;
-    min-height: 100vh;
+    min-height: 80vh;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     font-family: Chalkboard, sans-serif;
 }
 

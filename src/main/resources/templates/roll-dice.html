@@ -2,29 +2,29 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{partials :: head ('Dice game')}">
 </head>
-<body class="main-container">
-    <div>
-        <nav th:include="~{partials :: navbar}" class="navbar"></nav>
-    </div>
-    <div class="text-container">
-        <h1>Roll Dice Game</h1>
-        <p th:if="${roll == null}">Guess a number:</p>
-        <p th:if="${roll}">You guessed: <span th:text="${guess}"></span></p>
-        <br>
-        <p th:if="${message}"><span th:text="${message}"></span></p>
-        <div th:if="${roll == null}">
-            <a class="text-links" th:href="@{/roll-dice/1}"><i class="fa-solid fa-dice-one fa-xl"></i></a>
-            <a class="text-links" th:href="@{/roll-dice/2}"><i class="fa-solid fa-dice-two fa-xl"></i></a>
-            <a class="text-links" th:href="@{/roll-dice/3}"><i class="fa-solid fa-dice-three fa-xl"></i></a>
-            <a class="text-links" th:href="@{/roll-dice/4}"><i class="fa-solid fa-dice-four fa-xl"></i></a>
-            <a class="text-links" th:href="@{/roll-dice/5}"><i class="fa-solid fa-dice-five fa-xl"></i></a>
-            <a class="text-links" th:href="@{/roll-dice/6}"><i class="fa-solid fa-dice-six fa-xl"></i></a>
+<body>
+    <nav th:replace="~{partials :: navbar}"></nav>
+    <div class="main-container">
+        <div class="text-container">
+            <h1>Roll Dice Game</h1>
+            <p th:if="${roll == null}">Guess a number:</p>
+            <p th:if="${roll}">You guessed: <span th:text="${guess}"></span></p>
+            <br>
+            <p th:if="${message}"><span th:text="${message}"></span></p>
+            <div th:if="${roll == null}">
+                <a class="text-links" th:href="@{/roll-dice/1}"><i class="fa-solid fa-dice-one fa-xl"></i></a>
+                <a class="text-links" th:href="@{/roll-dice/2}"><i class="fa-solid fa-dice-two fa-xl"></i></a>
+                <a class="text-links" th:href="@{/roll-dice/3}"><i class="fa-solid fa-dice-three fa-xl"></i></a>
+                <a class="text-links" th:href="@{/roll-dice/4}"><i class="fa-solid fa-dice-four fa-xl"></i></a>
+                <a class="text-links" th:href="@{/roll-dice/5}"><i class="fa-solid fa-dice-five fa-xl"></i></a>
+                <a class="text-links" th:href="@{/roll-dice/6}"><i class="fa-solid fa-dice-six fa-xl"></i></a>
+            </div>
+            <div th:if="${roll}">
+                <p><a class="text-links" th:href="@{/roll-dice}">Roll again</a></p>
+            </div>
         </div>
-        <div th:if="${roll}">
-            <p><a class="text-links" th:href="@{/roll-dice}">Roll again</a></p>
-        </div>
+        <footer th:replace="~{partials :: footer}"></footer>
     </div>
-    <footer th:replace="~{partials :: footer}"></footer>
     <script th:replace="~{partials :: js}"></script>
 </body>
 </html>

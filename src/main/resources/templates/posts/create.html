@@ -2,22 +2,24 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{partials :: head ('Create post')}">
 </head>
-<body class="main-container">
-<nav th:replace="~{partials :: navbar}"></nav>
-<div class="text-container">
-    <h1>Create a post</h1>
-    <form class="create-form" action="/posts/create" method="post" th:object="${post}">
-        <label for="title">Title</label>
-        <input th:field="*{title}" type="text" name="title" id="title">
-        <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
-        <br>
-        <label for="body">Contents</label>
-        <textarea name="body" id="body"></textarea>
-        <br>
-        <input class="fa-xl" type="submit" value="submit">
-    </form>
-</div>
-<footer th:replace="~{partials :: footer}"></footer>
-<script th:replace="~{partials :: js}"></script>
+<body>
+    <nav th:replace="~{partials :: navbar}"></nav>
+    <div class="main-container">
+        <div class="text-container">
+            <h1>Create a post</h1>
+            <form class="create-form" th:action="@{/posts/save}" th:method="post" th:object="${post}">
+                <label for="title">Title</label>
+                <input autofocus type="text" name="title" id="title" placeholder="title" th:field="*{title}" th:classappend="${titleError != null} ? 'error-field' : ''">
+                <span th:text="${titleError}" class="error-message"></span><br>
+                <label for="body">Contents</label>
+                <textarea name="body" id="body" placeholder="describe your post here" th:field="*{body}" th:classappend="${bodyError != null} ? 'error-field' : ''"></textarea>
+                <span th:text="${bodyError}" class="error-message"></span><br>
+                <input type="hidden" th:field="*{id}">
+                <input class="fa-xl" type="submit" value="submit">
+            </form>
+        </div>
+        <footer th:replace="~{partials :: footer}"></footer>
+    </div>
+    <script th:replace="~{partials :: js}"></script>
 </body>
 </html>
