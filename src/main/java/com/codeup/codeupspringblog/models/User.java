@@ -2,6 +2,8 @@ package com.codeup.codeupspringblog.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.List;
 
@@ -12,35 +14,43 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String username;
 
     @Email
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
 
     @Column(nullable = false)
     private String password;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private List<Post> post;
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
+    private List<Post> posts;
 
     public User() {
     }
 
-    public User(long id, String username, String email, String password, List<Post> post) {
+    public User(User copy) {
+        id = copy.id; // This line is SUPER important! Many things won't work if it's absent
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
+    }
+
+    public User(long id, String username, String email, String password, List<Post> posts) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
-        this.post = post;
+        this.posts = posts;
     }
 
-    public User(String username, String email, String password, List<Post> post) {
+    public User(String username, String email, String password, List<Post> posts) {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.post = post;
+        this.posts = posts;
     }
 
     public long getId() {
@@ -76,10 +86,10 @@ public class User {
     }
 
     public List<Post> getPost() {
-        return post;
+        return posts;
     }
 
-    public void setPost(List<Post> post) {
-        this.post = post;
+    public void setPost(List<Post> posts) {
+        this.posts = posts;
     }
 }

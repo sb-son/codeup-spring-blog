@@ -3,6 +3,8 @@ package com.codeup.codeupspringblog.models;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name = "posts")
@@ -19,8 +21,9 @@ public class Post {
     @Column(nullable = false)
     private String body;
 
-    @ManyToOne
+    @ManyToOne( fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
 
     public Post() {

@@ -6,6 +6,7 @@ import com.codeup.codeupspringblog.repositories.PostRepository;
 import com.codeup.codeupspringblog.repositories.UserRepository;
 import com.codeup.codeupspringblog.services.EmailService;
 import jakarta.validation.Valid;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -46,7 +47,7 @@ public class PostController {
 
     @PostMapping("/posts/save")
     public String savePost(@Valid @ModelAttribute Post post, BindingResult bindingResult, Model model) {
-        User user = userDao.findUserById(1);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         post.setUser(user);
 
         if (bindingResult.hasErrors()) {

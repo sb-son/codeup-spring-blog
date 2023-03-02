@@ -8,7 +8,11 @@
         <div class="text-container">
             <h1><span th:text="${post.title}"></span></h1>
             <p><span th:text="${post.body}"></span></p>
+            <p><span th:text="${post.id}"></span></p>
             <p>Created By: <span th:text="${post.user.email}"></span></p>
+            <div th:if="${#authentication.principal.id == post.user.id}">
+                <a th:href="@{/posts/{id}(id=${post.id})/edit}" class="text-links">Edit</a>
+            </div>
             <a href="/posts" class="text-links back-btn">Back</a>
         </div>
         <footer th:replace="~{partials :: footer}"></footer>
