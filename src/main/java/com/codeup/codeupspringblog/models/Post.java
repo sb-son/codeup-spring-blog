@@ -21,9 +21,8 @@ public class Post {
     @Column(nullable = false)
     private String body;
 
-    @ManyToOne( fetch = FetchType.LAZY, optional = false)
+    @ManyToOne
     @JoinColumn(name = "user_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
 
     public Post() {

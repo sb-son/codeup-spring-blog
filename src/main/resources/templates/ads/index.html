@@ -5,7 +5,7 @@
 <body class="main-container">
     <nav th:replace="partials :: navbar"></nav>
     <div class="text-container">
-        <h1>Ads</h1>
+        <h1>All ads</h1>
         <ul>
             <li th:each="ad : ${ads}">
                 <a th:href="@{/ads/{id}(id=${ad.id})}"><h2 th:text="${ad.title}">post</h2></a>

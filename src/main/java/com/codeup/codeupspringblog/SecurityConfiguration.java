@@ -36,7 +36,7 @@ public class SecurityConfiguration {
                 /* Login configuration */
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/") // user's home page, it can be any URL
+                .defaultSuccessUrl("/profile") // user's home page, it can be any URL
                 .permitAll() // Anyone can go to the login page
                 /* Logout configuration */
                 .and()
@@ -45,7 +45,7 @@ public class SecurityConfiguration {
                 /* Pages that can be viewed without having to log in */
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/", "/posts", "/sign-up", "roll-dice", "/roll-dice/**", "/css/**", "/js/**") // anyone can see the home and the ads pages
+                .requestMatchers("/", "/ads", "/ads/{id}", "/posts", "/sign-up", "roll-dice", "/roll-dice/**", "/css/**", "/js/**") // anyone can see the home and the ads pages
                 .permitAll()
                 /* Pages that require authentication */
                 .and()
@@ -54,8 +54,7 @@ public class SecurityConfiguration {
                         "/posts/**", // only authenticated users can create ads
                         "/ads/**" // only authenticated users can edit ads
                 )
-                .authenticated()
-        ;
+                .authenticated();
         return http.build();
     }
 }

@@ -25,7 +25,6 @@ public class User {
     private String password;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    @OnDelete(action = OnDeleteAction.NO_ACTION)
     private List<Post> posts;
 
     public User() {

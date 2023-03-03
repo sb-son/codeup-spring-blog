@@ -6,6 +6,7 @@ import com.codeup.codeupspringblog.repositories.PostRepository;
 import com.codeup.codeupspringblog.repositories.UserRepository;
 import com.codeup.codeupspringblog.services.EmailService;
 import jakarta.validation.Valid;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,8 +49,7 @@ public class PostController {
     @PostMapping("/posts/save")
     public String savePost(@Valid @ModelAttribute Post post, BindingResult bindingResult, Model model) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        post.setUser(user);
-
+        Post origPost = postDao.findPostById(post.getId());
         if (bindingResult.hasErrors()) {
             for (FieldError error : bindingResult.getFieldErrors()) {
                 String errorMessage = error.getDefaultMessage();
@@ -61,8 +61,13 @@ public class PostController {
             }
             return "posts/create";
         }
-        postDao.save(post);
-        emailService.prepareAndSendPost(post);
+
+        if (origPost == null || user.getId() == origPost.getUser().getId()) {
+            post.setUser(user);
+            postDao.save(post);
+            emailService.prepareAndSendPost(post);
+            return "redirect:/posts";
+        }
         return "redirect:/posts";
     }
 
@@ -70,5 +75,11 @@ public class PostController {
     public String editPostForm(Model model, @PathVariable long id) {
         model.addAttribute("post", postDao.findPostById(id));
         return "posts/create";
+    }
+
+    @GetMapping("posts/{id}/delete")
+    public String confirmDelete(@PathVariable long id, Model model) {
+        model.addAttribute("post", postDao.findPostById(id));
+        return "ads/delete";
     }
 }
